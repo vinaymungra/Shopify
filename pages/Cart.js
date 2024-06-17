@@ -19,7 +19,7 @@ export default function Cart() {
         {cartItems.map(({ productId, title, rating, price, imageUrl, quantity }) => (
           <CartItem
             key={productId}
-            id={productId}
+            productId={productId}
             title={title}
             price={price}
             quantity={quantity}

@@ -1,18 +1,28 @@
-import {combineReducers, createStore} from  'redux';
+// import {combineReducers, createStore} from  'redux';
 import cartReducer from './slices/cartSlice';
 import wishListReducer from './slices/wishListSlice';
 import productsReducer from './slices/productsSlice';
+import { configureStore } from '@reduxjs/toolkit';
 
 // import { productsList } from './productsList';
 
-const reducer=combineReducers({
-    products:productsReducer,
-    cart:cartReducer,
-    wishList: wishListReducer
+// const reducer=combineReducers({
+//     products:productsReducer,
+//     cart:cartReducer,
+//     wishList: wishListReducer
 
-})
+// })
 
-export default store = createStore(reducer,window.__REDUX_DEVTOOLS_EXTENSION__?.());
+// export default store = createStore(reducer,window.__REDUX_DEVTOOLS_EXTENSION__?.());
+
+
+export default store = configureStore({
+    reducer:{
+        products:productsReducer,
+        cart:cartReducer,
+        wishList: wishListReducer
+    }
+});
 
 function manualCombiningReducer(reducers){
    
@@ -33,17 +43,3 @@ function manualCombiningReducer(reducers){
     }
 }
 
-
-
-
-// store.dispatch(cartAddItem(1,1))
-// // console.log(store.getState())
-// store.dispatch(cartIncreaseItemQuantity(1))
-// store.dispatch(cartAddItem(2,1))
-// // console.log(store.getState())
-
-// store.dispatch(cartIncreaseItemQuantity(2))
-// store.dispatch(cartDecreaseItemQuantity(1))
-// store.dispatch(cartDecreaseItemQuantity(1))
-
-// // console.log(store.getState())
